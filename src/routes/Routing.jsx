@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "../pages/Home";
+import Home from "../components/pages/Home";
 import Register from "../components/pages/auth/Register";
 import ProductList from "../components/pages/ProductList";
 import ProductDetail from "../components/pages/ProductDetail";
-import Checkout from "../components/pages/CheckoutPage";
+import Checkout from "../components/pages/Checkout";
 import ErrorNotFound from "../components/pages/ErrorNotFound";
 
 const Routing = () => {

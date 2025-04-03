@@ -10,7 +10,7 @@ import {
   InputRightElement,
 } from "@chakra-ui/react";
 
-import { email, password } from "../../utils/validations";
+import { email, password } from "../../../utils/validations";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../../hooks/useAuth";
 

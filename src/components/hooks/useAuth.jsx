@@ -1,4 +1,4 @@
 import { useContext } from "react";
-import { AuthContex } from "../../context/CartContext";
+import { AuthContext } from "../../context/AuthContext";
 
-export const useAuth = () => useContext(AuthContex);
+export const useAuth = () => useContext(AuthContext);
