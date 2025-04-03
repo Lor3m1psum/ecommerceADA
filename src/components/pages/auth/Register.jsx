@@ -10,9 +10,9 @@ import {
   InputRightElement,
 } from "@chakra-ui/react";
 
-import { email, password } from "../../utils/validations";
+import { email, password } from "../../../utils/validations";
 import { useForm } from "react-hook-form";
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "../../hooks/useAuth";
 
 const Register = () => {
   const [show, setShow] = useState(false);
