@@ -1,5 +1,5 @@
 import React from "react";
-import { useCart } from "../../context/CartContext";
+import { useCart } from "../hooks/useCart";
 import { Box, Button, Img, Stack, Text } from "@chakra-ui/react";
 
 export const ProductDetail = ({ product }) => {

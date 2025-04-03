@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "../pages/Home";
-import Register from "../pages/auth/Register";
-import ProductList from "../pages/ProductList";
-import ProductDetail from "../pages/ProductDetail";
-import Checkout from "../pages/CheckoutPage";
-import ErrorNotFound from "../pages/ErrorNotFound";
+import Register from "../components/pages/auth/Register";
+import ProductList from "../components/pages/ProductList";
+import ProductDetail from "../components/pages/ProductDetail";
+import Checkout from "../components/pages/CheckoutPage";
+import ErrorNotFound from "../components/pages/ErrorNotFound";
 
 const Routing = () => {
   return (
