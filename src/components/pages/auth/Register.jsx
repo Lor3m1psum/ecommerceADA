@@ -10,6 +10,7 @@ import {
   InputRightElement,
 } from "@chakra-ui/react";
 
+import { useNavigate } from "react-router-dom";
 import { email, password } from "../../../utils/validations";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../../hooks/useAuth";
@@ -17,14 +18,18 @@ import { useAuth } from "../../hooks/useAuth";
 const Register = () => {
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
+  const navigate = useNavigate();
   const { register, formState, handleSubmit } = useForm();
   const { errors } = formState;
   const { registerUser } = useAuth();
 
-  console.log(errors);
-
-  const onSubmit = (data) => {
-    registerUser(data);
+  const onSubmit = async (data) => {
+    try {
+      await registerUser(data);
+      navigate("/");
+    } catch (error) {
+      console.error("Error during registration:", error);
+    }
   };
 
   return (
@@ -42,6 +47,7 @@ const Register = () => {
             {errors.email && errors.email.message}
           </FormErrorMessage>
         </FormControl>
+
         <FormControl isInvalid={errors.password}>
           <FormLabel htmlFor="password">Password</FormLabel>
           <InputGroup>
@@ -61,6 +67,7 @@ const Register = () => {
             {errors.password && errors.password?.message}
           </FormErrorMessage>
         </FormControl>
+
         <Button
           mt={4}
           type="submit"

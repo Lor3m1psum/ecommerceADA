@@ -11,11 +11,18 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import { useCart } from "../hooks/useCart";
 import { FaShoppingCart } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const { user, logout } = useAuth();
+  const navigate = useNavigate();
   const { cartItems } = useCart();
   const cartCount = cartItems.length;
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+  };
 
   const isMobile = useBreakpointValue({ base: true, md: false });
   return (
@@ -48,12 +55,7 @@ const Header = () => {
           {user ? (
             <>
               <Text>Welcome, {user.email}</Text>
-              <Link to="/profile">
-                <Button colorScheme="teal" variant="outline">
-                  Profile
-                </Button>
-              </Link>
-              <Button colorScheme="red" onClick={logout}>
+              <Button colorScheme="red" onClick={handleLogout}>
                 Logout
               </Button>
             </>
