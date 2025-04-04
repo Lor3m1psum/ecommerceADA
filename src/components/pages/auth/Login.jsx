@@ -8,22 +8,31 @@ import {
   Input,
   InputGroup,
   InputRightElement,
+  Link,
+  Text,
 } from "@chakra-ui/react";
 
 import { email, password } from "../../../utils/validations";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [show, setShow] = useState(false);
+  const navigate = useNavigate();
   const handleClick = () => setShow(!show);
   const { register, formState, handleSubmit } = useForm();
   const { errors } = formState;
 
   const { login } = useAuth();
 
-  const onSubmit = (data) => {
-    login(data);
+  const onSubmit = async (data) => {
+    try {
+      await login(data);
+      navigate("/");
+    } catch (error) {
+      console.error("Error during registration:", error);
+    }
   };
 
   return (
@@ -70,6 +79,14 @@ const Login = () => {
         >
           Sign in
         </Button>
+        <Text mt={4} textAlign="center">
+          Don't have an account?{" "}
+          <Link href="/register">
+            <Button variant="link" colorScheme="teal">
+              Register
+            </Button>
+          </Link>
+        </Text>
       </form>
     </Box>
   );
