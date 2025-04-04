@@ -1,12 +1,61 @@
-# React + Vite
+# E-commerce ADA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+This is an e-commerce project developed as a final assignment for **ADA ITW**. It allows users to browse products, add them to the cart, complete checkout, and place orders.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- 🔍 **Product List**: Displays products stored in Firebase.
+- 🛒 **Shopping Cart**: Add, remove, and clear products.
+- 🔐 **Authentication**: Register and log in using Firebase Auth.
+- 💳 **Checkout**: Purchase process with address and payment form.
+- ✅ **Order Confirmation**: Success message after completing payment.
+- 🚀 **Deployment**: Available on [Vercel]
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Technologies Used
+
+- React.js ⚛️
+- Chakra UI 🎨
+- Firebase 🔥 (Auth, Firestore, Hosting)
+- React Router 🚦
+
+## Installation and Setup
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Lor3m1psum/ecommerceADA.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd ecommerceada
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Configure Firebase:
+   - Create a `.env` file in the root directory with your Firebase credentials:
+     ```env
+     REACT_APP_FIREBASE_API_KEY=your_api_key
+     REACT_APP_FIREBASE_AUTH_DOMAIN=your_auth_domain
+     REACT_APP_FIREBASE_PROJECT_ID=your_project_id
+     REACT_APP_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+     REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+     REACT_APP_FIREBASE_APP_ID=your_app_id
+     ```
+
+## Running Locally
+
+To start the app in development mode:
+
+```bash
+npm run dev
+```
+
+The app will be available at `http://localhost:5173/`
+
+## Author
+
+👩‍💻 **Lorena Rosales** - Developed for **ADA ITW** 🚀  
+[GitHub Profile](https://github.com/Lor3m1psum)
