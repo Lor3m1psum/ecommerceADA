@@ -70,6 +70,7 @@ const Register = () => {
 
         <Button
           mt={4}
+          width="100%"
           type="submit"
           colorScheme="teal"
           isLoading={formState.isSubmitting}
