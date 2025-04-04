@@ -7,18 +7,19 @@ import { Box, Text, Spinner, Img, VStack, Button } from "@chakra-ui/react";
 
 const ProductDetail = () => {
   const { addToCart } = useCart();
-
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    console.log("id useparams", id);
     const fetchProduct = async () => {
       try {
         const docRef = doc(db, "products", id);
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
+          console.log("existe o no", docSnap.exists());
           setProduct(docSnap.data());
         } else {
           console.log("No such product!");
@@ -32,20 +33,6 @@ const ProductDetail = () => {
 
     fetchProduct();
   }, [id]);
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setProduct({
-  //       id: "123",
-  //       name: "Producto de prueba",
-  //       image:
-  //         "https://t4.ftcdn.net/jpg/02/66/72/41/240_F_266724172_Iy8gdKgMa7XmrhYYxLCxyhx6J7070Pr8.jpg",
-  //       description: "Este es un producto de prueba con datos ficticios.",
-  //       price: 29.99,
-  //     });
-  //     setLoading(false);
-  //   }, 1000); //
-  // }, []);
 
   if (loading) {
     return <Spinner size="xl" />;
@@ -61,7 +48,7 @@ const ProductDetail = () => {
         {product.name}
       </Text>
       <Img
-        src={product.image}
+        src={product.image_url}
         alt={product.name}
         boxSize="300px"
         objectFit="cover"
@@ -69,7 +56,7 @@ const ProductDetail = () => {
         mb={4}
         mx="auto"
       />
-      <VStack align="center">
+      <VStack spacing={4} align="center">
         <Text color="gray.500" fontWeight="thin">
           {product.description}
         </Text>
