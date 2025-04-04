@@ -35,7 +35,7 @@ const ProductDetail = () => {
   }, [id]);
 
   if (loading) {
-    return <Spinner size="xl" />;
+    return <Spinner color="teal.400" size="xl" />;
   }
 
   if (!product) {
