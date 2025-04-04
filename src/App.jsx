@@ -2,15 +2,17 @@ import "./App.css";
 import Routing from "../src/routes/Routing";
 import Header from "./components/pages/Header";
 import Footer from "./components/pages/Footer";
-import { Box } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 
 function App() {
   return (
-    <Box display="flex" flexDirection="column" minHeight="95vh">
+    <Flex direction="column" minHeight="100vh">
       <Header />
-      <Routing />
+      <Box flex="1" as="main">
+        <Routing />
+      </Box>
       <Footer />
-    </Box>
+    </Flex>
   );
 }
 

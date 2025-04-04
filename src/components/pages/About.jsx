@@ -2,8 +2,14 @@ import { Box, Container, Heading, Text, Divider } from "@chakra-ui/react";
 
 const About = () => {
   return (
-    <Box bg="gray.100" minH="100vh" py={10}>
-      <Container maxW="800px" bg="white" p={8} borderRadius="lg" boxShadow="md">
+    <Box bg="gray.100" minH="80vh" py={14}>
+      <Container
+        maxW="container.md"
+        bg="white"
+        p={8}
+        borderRadius="lg"
+        boxShadow="md"
+      >
         <Heading as="h1" size="xl" textAlign="center" color="pink.900" mb={4}>
           About Us
         </Heading>

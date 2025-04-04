@@ -81,7 +81,7 @@ const Login = () => {
         </Button>
         <Text mt={4} textAlign="center">
           Don't have an account?{" "}
-          <Link href="/register">
+          <Link to="/register">
             <Button variant="link" colorScheme="teal">
               Register
             </Button>
