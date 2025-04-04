@@ -14,17 +14,16 @@ import { email, password } from "../../../utils/validations";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../../hooks/useAuth";
 
-const Register = () => {
+const Login = () => {
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
   const { register, formState, handleSubmit } = useForm();
   const { errors } = formState;
-  const { registerUser } = useAuth();
 
-  console.log(errors);
+  const { login } = useAuth();
 
   const onSubmit = (data) => {
-    registerUser(data);
+    login(data);
   };
 
   return (
@@ -49,6 +48,7 @@ const Register = () => {
               type={show ? "text" : "password"}
               id="password"
               placeholder="please enter your password"
+              pr="4.5rem"
               {...register("password", password)}
             />
             <InputRightElement width="4.5rem">
@@ -66,12 +66,13 @@ const Register = () => {
           type="submit"
           colorScheme="teal"
           isLoading={formState.isSubmitting}
+          width="100%"
         >
-          Register
+          Sign in
         </Button>
       </form>
     </Box>
   );
 };
 
-export default Register;
+export default Login;
