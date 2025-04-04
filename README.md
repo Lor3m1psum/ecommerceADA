@@ -1,41 +1,41 @@
 # E-commerce ADA
 
-## Descripción
+## Description
 
-Este es un proyecto de e-commerce desarrollado como trabajo final para **ADA ITW**. Permite a los usuarios navegar por productos, agregarlos al carrito, completar un checkout y realizar pedidos.
+This is an e-commerce project developed as a final assignment for **ADA ITW**. It allows users to browse products, add them to the cart, complete checkout, and place orders.
 
-## Características
+## Features
 
-- 🔍 **Lista de Productos**: Visualización de productos almacenados en Firebase.
-- 🛒 **Carrito de Compras**: Agregar, eliminar y vaciar productos.
-- 🔐 **Autenticación**: Registro e inicio de sesión con Firebase Auth.
-- 💳 **Checkout**: Proceso de compra con formulario de dirección y pago.
-- ✅ **Confirmación de Orden**: Mensaje de éxito después de completar el pago.
-- 🚀 **Despliegue**: Disponible en [Netlify/Vercel] (reemplaza con el enlace de tu despliegue).
+- 🔍 **Product List**: Displays products stored in Firebase.
+- 🛒 **Shopping Cart**: Add, remove, and clear products.
+- 🔐 **Authentication**: Register and log in using Firebase Auth.
+- 💳 **Checkout**: Purchase process with address and payment form.
+- ✅ **Order Confirmation**: Success message after completing payment.
+- 🚀 **Deployment**: Available on [Vercel]
 
-## Tecnologías Utilizadas
+## Technologies Used
 
 - React.js ⚛️
 - Chakra UI 🎨
 - Firebase 🔥 (Auth, Firestore, Hosting)
 - React Router 🚦
 
-## Instalación y Configuración
+## Installation and Setup
 
-1. Clona el repositorio:
+1. Clone the repository:
    ```bash
    git clone https://github.com/Lor3m1psum/ecommerceADA.git
    ```
-2. Ingresa al directorio:
+2. Navigate to the project directory:
    ```bash
    cd ecommerceada
    ```
-3. Instala las dependencias:
+3. Install dependencies:
    ```bash
    npm install
    ```
-4. Configura Firebase:
-   - Crea un archivo `.env` en la raíz del proyecto con las credenciales de Firebase:
+4. Configure Firebase:
+   - Create a `.env` file in the root directory with your Firebase credentials:
      ```env
      REACT_APP_FIREBASE_API_KEY=your_api_key
      REACT_APP_FIREBASE_AUTH_DOMAIN=your_auth_domain
@@ -45,17 +45,17 @@ Este es un proyecto de e-commerce desarrollado como trabajo final para **ADA ITW
      REACT_APP_FIREBASE_APP_ID=your_app_id
      ```
 
-## Ejecución Local
+## Running Locally
 
-Para iniciar la aplicación en modo desarrollo:
+To start the app in development mode:
 
 ```bash
 npm run dev
 ```
 
-La app estará disponible en `http://localhost:5173/`
+The app will be available at `http://localhost:5173/`
 
-## Autor
+## Author
 
-👩‍💻 **Lorena Rosales** - Desarrollado para **ADA ITW** 🚀
-https://github.com/Lor3m1psum
+👩‍💻 **Lorena Rosales** - Developed for **ADA ITW** 🚀  
+[GitHub Profile](https://github.com/Lor3m1psum)
