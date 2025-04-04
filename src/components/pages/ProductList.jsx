@@ -41,8 +41,8 @@ const ProductList = () => {
 
   return (
     <Box p={6}>
-      <Text fontSize="3xl" fontWeight="bold" mb={6} textAlign="center">
-        All Products
+      <Text fontSize="4xl" fontWeight="normal" mb={6} textAlign="left">
+        Products
       </Text>
       <Grid templateColumns={gridColumns} gap={10}>
         {products.map((product) => (
