@@ -9,6 +9,7 @@ import Login from "../components/pages/auth/Login";
 import Cart from "../components/pages/Cart";
 import About from "../components/pages/About";
 import PaymentForm from "../components/pages/PaymentForm";
+import ProtectedRoutes from "../components/ProtectedRoutes";
 
 const Routing = () => {
   return (
@@ -17,11 +18,32 @@ const Routing = () => {
       <Route path="/register" element={<Register />} />
       <Route path="/about" element={<About />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/cart" element={<Cart />} />
+      <Route
+        path="/cart"
+        element={
+          <ProtectedRoutes>
+            <Cart />
+          </ProtectedRoutes>
+        }
+      />
       <Route path="/products" element={<ProductList />} />
       <Route path="/product/:id" element={<ProductDetail />} />
-      <Route path="/payment" element={<PaymentForm />} />
-      <Route path="/checkout" element={<Checkout />} />
+      <Route
+        path="/payment"
+        element={
+          <ProtectedRoutes>
+            <PaymentForm />
+          </ProtectedRoutes>
+        }
+      />
+      <Route
+        path="/checkout"
+        element={
+          <ProtectedRoutes>
+            <Checkout />
+          </ProtectedRoutes>
+        }
+      />
       <Route path="*" element={<ErrorNotFound />} />
     </Routes>
   );
