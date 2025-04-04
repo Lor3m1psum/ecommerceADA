@@ -111,7 +111,7 @@ const PaymentForm = () => {
 
       {success && (
         <Button colorScheme="teal" mt={4} onClick={() => navigate("/")}>
-          Keep Shopping
+          Continue Shopping
         </Button>
       )}
     </Box>

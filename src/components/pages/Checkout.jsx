@@ -1,25 +1,13 @@
 import { useState } from "react";
-import {
-  Box,
-  Button,
-  Text,
-  VStack,
-  Spinner,
-  Alert,
-  AlertIcon,
-  useToast,
-} from "@chakra-ui/react";
+import { Box, Button, Text, VStack, Spinner, useToast } from "@chakra-ui/react";
 import { useCart } from "../hooks/useCart";
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
-import { db } from "../../firebase/config";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 const Checkout = () => {
-  const { cartItems, clearCart } = useCart();
+  const { cartItems } = useCart();
   const { user } = useAuth();
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
   const toast = useToast();
   const navigate = useNavigate();
 
@@ -68,21 +56,6 @@ const Checkout = () => {
           >
             {loading ? <Spinner size="sm" /> : "Pay"}
           </Button>
-
-          {success && (
-            <Alert size="xl" status="success">
-              <AlertIcon />
-              Your order has been placed successfully!
-              <Button
-                colorScheme="teal"
-                variant="link"
-                onClick={() => navigate("/")}
-                ml={2}
-              >
-                Continue Shopping
-              </Button>
-            </Alert>
-          )}
         </VStack>
       )}
     </Box>
