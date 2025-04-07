@@ -15,11 +15,10 @@ import {
   useDisclosure,
   VStack,
 } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import { useCart } from "../hooks/useCart";
 import { FaShoppingCart, FaBars } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Header = () => {
   const { user, logout } = useAuth();
