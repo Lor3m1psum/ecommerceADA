@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Button,
@@ -10,6 +10,13 @@ import {
   InputRightElement,
   Link,
   Text,
+  useDisclosure,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody,
 } from "@chakra-ui/react";
 
 import { email, password } from "../../../utils/validations";
@@ -19,21 +26,59 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [show, setShow] = useState(false);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   const handleClick = () => setShow(!show);
   const { register, formState, handleSubmit } = useForm();
   const { errors } = formState;
 
   const { login } = useAuth();
 
+  const handleClose = () => {
+    setError("");
+    onClose();
+  };
+
   const onSubmit = async (data) => {
+    setLoading(true);
+    setError("");
     try {
       await login(data);
       navigate("/");
     } catch (error) {
-      console.error("Error during registration:", error);
+      console.error("Login error:", error);
+      let message = "Something went wrong. Please try again.";
+      switch (error.code) {
+        case "auth/user-not-found":
+          message = "User not found.";
+          break;
+        case "auth/wrong-password":
+          message = "Wrong password.";
+          break;
+        case "auth/invalid-email":
+          message = "Invalid email.";
+          break;
+        case "auth/missing-email":
+          message = "Email is missing.";
+          break;
+        case "auth/invalid-credential":
+          message = "Invalid credentials.";
+          break;
+      }
+      setError(message);
+    } finally {
+      setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (error) {
+      onOpen();
+    }
+  }, [error, onOpen]);
 
   return (
     <Box maxW="sm" mt={10} mx="auto">
@@ -74,7 +119,7 @@ const Login = () => {
           mt={4}
           type="submit"
           colorScheme="teal"
-          isLoading={formState.isSubmitting}
+          isLoading={loading}
           width="100%"
         >
           Sign in
@@ -88,6 +133,26 @@ const Login = () => {
           </Link>
         </Text>
       </form>
+      <Modal
+        isOpen={isOpen}
+        onClose={handleClose}
+        isCentered
+        textAlign="center"
+      >
+        <ModalOverlay />
+        <ModalContent
+          textAlign="center"
+          color="red.800"
+          borderRadius="md"
+          boxShadow="lg"
+        >
+          <ModalHeader color="red.600">Error trying to login</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody mb={4} color="red.700">
+            {error}
+          </ModalBody>
+        </ModalContent>
+      </Modal>
     </Box>
   );
 };
