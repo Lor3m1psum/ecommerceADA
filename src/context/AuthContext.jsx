@@ -34,7 +34,6 @@ export const AuthProvider = ({ children }) => {
         email,
         password
       );
-      console.log("user credentials", userCredential);
 
       const user = userCredential.user;
       setUser(user);
