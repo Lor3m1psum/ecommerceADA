@@ -12,14 +12,12 @@ const ProductDetail = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log("id useparams", id);
     const fetchProduct = async () => {
       try {
         const docRef = doc(db, "products", id);
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
-          console.log("existe o no", docSnap.exists());
           setProduct(docSnap.data());
         } else {
           console.log("No such product!");

@@ -8,7 +8,6 @@ import {
   Input,
   InputGroup,
   InputRightElement,
-  Link,
   Text,
   useDisclosure,
   Modal,
@@ -22,7 +21,7 @@ import {
 import { email, password } from "../../../utils/validations";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../../hooks/useAuth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Login = () => {
   const [show, setShow] = useState(false);
