@@ -34,14 +34,12 @@ export const AuthProvider = ({ children }) => {
         email,
         password
       );
-
       const user = userCredential.user;
-      setUser(user);
-      return user;
+      await signOut(auth);
+      return { email: user.email };
     } catch (error) {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorCode, errorMessage);
+      console.log(error.code, error.message);
+      throw error;
     }
   };
 
